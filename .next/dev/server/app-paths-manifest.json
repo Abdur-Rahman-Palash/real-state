@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/agents/page": "app/agents/page.js",
+  "/auth/login/page": "app/auth/login/page.js",
+  "/auth/signup/page": "app/auth/signup/page.js",
+  "/dashboard/add-listing/page": "app/dashboard/add-listing/page.js",
+  "/new-projects/page": "app/new-projects/page.js",
+  "/page": "app/page.js",
+  "/properties/page": "app/properties/page.js",
+  "/rent/page": "app/rent/page.js"
+}
