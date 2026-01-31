@@ -53,7 +53,8 @@ const AgentListingPage = () => {
       filtered = filtered.filter(a => 
         a.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         a.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        a.specialization.some(spec => spec.toLowerCase().includes(searchQuery.toLowerCase()))
+        a.specialization.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (a.specializations && a.specializations.some(spec => spec.toLowerCase().includes(searchQuery.toLowerCase())))
       );
     }
 
@@ -130,14 +131,22 @@ const AgentListingPage = () => {
         </div>
 
         <div className="flex flex-wrap gap-2 mb-4">
-          {agent.specialization.slice(0, 2).map((spec: string, index: number) => (
-            <span key={index} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
-              {spec}
-            </span>
-          ))}
-          {agent.specialization.length > 2 && (
+          {agent.specializations ? (
+            <>
+              {agent.specializations.slice(0, 2).map((spec: string, index: number) => (
+                <span key={index} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                  {spec}
+                </span>
+              ))}
+              {agent.specializations.length > 2 && (
+                <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                  +{agent.specializations.length - 2} more
+                </span>
+              )}
+            </>
+          ) : (
             <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
-              +{agent.specialization.length - 2} more
+              {agent.specialization}
             </span>
           )}
         </div>
@@ -237,11 +246,17 @@ const AgentListingPage = () => {
           </div>
 
           <div className="flex flex-wrap gap-2 mb-4">
-            {agent.specialization.map((spec: string, index: number) => (
-              <span key={index} className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-sm">
-                {spec}
+            {agent.specializations ? (
+              agent.specializations.map((spec: string, index: number) => (
+                <span key={index} className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-sm">
+                  {spec}
+                </span>
+              ))
+            ) : (
+              <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-sm">
+                {agent.specialization}
               </span>
-            ))}
+            )}
           </div>
 
           <p className="text-gray-600 text-sm mb-4 line-clamp-2">
@@ -271,7 +286,7 @@ const AgentListingPage = () => {
     </div>
   );
 
-  const specializations = Array.from(new Set(agents.flatMap(a => a.specialization)));
+  const specializations = Array.from(new Set(agents.flatMap(a => a.specializations || [a.specialization])));
   const locations = Array.from(new Set(agents.map(a => a.location)));
 
   return (

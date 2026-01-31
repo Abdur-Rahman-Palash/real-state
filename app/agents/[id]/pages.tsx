@@ -83,7 +83,7 @@ const AgentProfilePage = async ({ params }: AgentProfilePageProps) => {
                 </div>
                 <div className="flex items-center">
                   <Building className="w-5 h-5 mr-2" />
-                  <span>{agent.propertiesSold || agent.sold || 0} properties sold</span>
+                  <span>{agent.propertiesSold || 0} properties sold</span>
                 </div>
                 <div className="flex items-center">
                   <Award className="w-5 h-5 mr-2" />
@@ -136,24 +136,20 @@ const AgentProfilePage = async ({ params }: AgentProfilePageProps) => {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">About {agent.name}</h2>
-              <p className="text-gray-700 mb-6">{agent.about}</p>
+              <p className="text-gray-700 mb-6">{agent.about || 'Experienced real estate agent dedicated to helping clients find their dream properties.'}</p>
               
               <h3 className="text-2xl font-semibold text-gray-900 mb-4">Specializations</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
-                {agent.specializations?.map((spec: string, index: number) => (
+                {(agent.specializations || []).map((spec, index) => (
                   <div key={index} className="bg-gray-100 px-4 py-2 rounded-lg text-center">
                     {spec}
                   </div>
-                )) || (
-                  <div className="bg-gray-100 px-4 py-2 rounded-lg text-center">
-                    {agent.specialization}
-                  </div>
-                )}
+                ))}
               </div>
 
               <h3 className="text-2xl font-semibold text-gray-900 mb-4">Achievements</h3>
               <div className="space-y-4 mb-8">
-                {(agent.achievements || ['Top performer 2023', '100+ satisfied clients', 'Expert in luxury properties']).map((achievement: string, index: number) => (
+                {(agent.achievements || ['Top performer 2023', '100+ satisfied clients', 'Expert in luxury properties']).map((achievement, index) => (
                   <div key={index} className="flex items-start">
                     <Check className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                     <span className="text-gray-700">{achievement}</span>
@@ -169,7 +165,7 @@ const AgentProfilePage = async ({ params }: AgentProfilePageProps) => {
                 <div className="space-y-4">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Properties Sold</span>
-                    <span className="font-semibold">{agent.propertiesSold || agent.sold || 0}</span>
+                    <span className="font-semibold">{agent.propertiesSold || 0}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Average Response Time</span>

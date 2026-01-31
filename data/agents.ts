@@ -5,13 +5,15 @@ export interface Agent {
   phone: string;
   company: string;
   license: string;
-  specialization: string[];
+  specialization: string;
+  specializations?: string[];
   languages: string[];
   experience: number;
   rating: number;
   reviews: number;
   listings: number;
   sold: number;
+  propertiesSold?: number;
   responseTime: string;
   about: string;
   image: string;
@@ -19,6 +21,7 @@ export interface Agent {
   featured: boolean;
   location: string;
   areas: string[];
+  achievements?: string[];
 }
 
 export const agents: Agent[] = [
@@ -29,7 +32,8 @@ export const agents: Agent[] = [
     phone: '+971 50 123 4567',
     company: 'Premium Realty',
     license: 'BRN-12345',
-    specialization: ['Luxury Properties', 'Villas', 'Penthouses'],
+    specialization: 'Luxury Properties',
+    specializations: ['Luxury Properties', 'Villas', 'Penthouses'],
     languages: ['English', 'Arabic', 'French'],
     experience: 8,
     rating: 4.9,
@@ -42,7 +46,8 @@ export const agents: Agent[] = [
     verified: true,
     featured: true,
     location: 'Dubai',
-    areas: ['Downtown Dubai', 'Dubai Marina', 'Palm Jumeirah', 'Business Bay']
+    areas: ['Downtown Dubai', 'Dubai Marina', 'Palm Jumeirah', 'Business Bay'],
+    achievements: ['Top performer 2023', '100+ satisfied clients', 'Expert in luxury properties']
   },
   {
     id: '2',
@@ -51,7 +56,8 @@ export const agents: Agent[] = [
     phone: '+971 55 987 6543',
     company: 'City Properties',
     license: 'BRN-23456',
-    specialization: ['Apartments', 'Investment Properties', 'Off-plan'],
+    specialization: 'Apartments',
+    specializations: ['Apartments', 'Investment Properties', 'Off-plan'],
     languages: ['English', 'Mandarin', 'Cantonese'],
     experience: 6,
     rating: 4.8,
@@ -64,7 +70,8 @@ export const agents: Agent[] = [
     verified: true,
     featured: true,
     location: 'Dubai',
-    areas: ['Dubai Marina', 'JBR', 'Business Bay', 'Downtown Dubai']
+    areas: ['Dubai Marina', 'JBR', 'Business Bay', 'Downtown Dubai'],
+    achievements: ['Investment specialist', '50+ off-plan sales', 'Best customer service 2022']
   },
   {
     id: '3',
@@ -73,7 +80,8 @@ export const agents: Agent[] = [
     phone: '+971 52 345 6789',
     company: 'Gulf Properties',
     license: 'BRN-34567',
-    specialization: ['Family Homes', 'Townhouses', 'Communities'],
+    specialization: 'Family Homes',
+    specializations: ['Family Homes', 'Townhouses', 'Communities'],
     languages: ['English', 'Arabic', 'Hindi'],
     experience: 10,
     rating: 4.9,
@@ -86,7 +94,8 @@ export const agents: Agent[] = [
     verified: true,
     featured: false,
     location: 'Dubai',
-    areas: ['Dubai Hills', 'Arabian Ranches', 'Mirdif', 'Al Qusais']
+    areas: ['Dubai Hills', 'Arabian Ranches', 'Mirdif', 'Al Qusais'],
+    achievements: ['Family home expert', '150+ families helped', 'Community specialist']
   },
   {
     id: '4',
@@ -95,7 +104,8 @@ export const agents: Agent[] = [
     phone: '+971 56 789 0123',
     company: 'Elite Properties',
     license: 'BRN-45678',
-    specialization: ['Commercial', 'Retail', 'Office Spaces'],
+    specialization: 'Commercial',
+    specializations: ['Commercial', 'Retail', 'Office Spaces'],
     languages: ['English', 'German', 'Spanish'],
     experience: 12,
     rating: 4.7,
@@ -108,7 +118,8 @@ export const agents: Agent[] = [
     verified: true,
     featured: false,
     location: 'Dubai',
-    areas: ['DIFC', 'Business Bay', 'JLT', 'Media City']
+    areas: ['DIFC', 'Business Bay', 'JLT', 'Media City'],
+    achievements: ['Commercial expert', '200+ commercial deals', 'Corporate specialist']
   },
   {
     id: '5',
@@ -117,7 +128,8 @@ export const agents: Agent[] = [
     phone: '+971 54 567 8901',
     company: 'Family Homes Realty',
     license: 'BRN-56789',
-    specialization: ['Apartments', 'Studios', 'First-time Buyers'],
+    specialization: 'Apartments',
+    specializations: ['Apartments', 'Studios', 'First-time Buyers'],
     languages: ['English', 'Hindi', 'Urdu', 'Gujarati'],
     experience: 4,
     rating: 4.6,
@@ -130,7 +142,8 @@ export const agents: Agent[] = [
     verified: false,
     featured: false,
     location: 'Dubai',
-    areas: ['Deira', 'Bur Dubai', 'International City', 'Discovery Gardens']
+    areas: ['Deira', 'Bur Dubai', 'International City', 'Discovery Gardens'],
+    achievements: ['First-time buyer specialist', '80+ first-time buyers', 'Patient guide award']
   },
   {
     id: '6',
@@ -139,7 +152,8 @@ export const agents: Agent[] = [
     phone: '+971 50 234 5678',
     company: 'Luxury Living',
     license: 'BRN-67890',
-    specialization: ['Waterfront Properties', 'Beach Homes', 'Island Living'],
+    specialization: 'Waterfront Properties',
+    specializations: ['Waterfront Properties', 'Beach Homes', 'Island Living'],
     languages: ['English', 'Spanish', 'Portuguese'],
     experience: 7,
     rating: 4.8,
@@ -152,7 +166,8 @@ export const agents: Agent[] = [
     verified: true,
     featured: true,
     location: 'Dubai',
-    areas: ['Palm Jumeirah', 'Bluewaters Island', 'Dubai Marina', 'JBR']
+    areas: ['Palm Jumeirah', 'Bluewaters Island', 'Dubai Marina', 'JBR'],
+    achievements: ['Waterfront specialist', 'Luxury island expert', 'Beach home authority']
   },
   {
     id: '7',
@@ -161,7 +176,8 @@ export const agents: Agent[] = [
     phone: '+971 55 345 6789',
     company: 'Urban Living',
     license: 'BRN-78901',
-    specialization: ['Affordable Housing', 'Apartments', 'Quick Move-in'],
+    specialization: 'Affordable Housing',
+    specializations: ['Affordable Housing', 'Apartments', 'Quick Move-in'],
     languages: ['English', 'Arabic', 'Tagalog'],
     experience: 5,
     rating: 4.5,
@@ -174,7 +190,8 @@ export const agents: Agent[] = [
     verified: false,
     featured: false,
     location: 'Dubai',
-    areas: ['International City', 'Discovery Gardens', 'JVC', 'Sports City']
+    areas: ['International City', 'Discovery Gardens', 'JVC', 'Sports City'],
+    achievements: ['Affordable housing expert', 'Quick move-in specialist', 'Budget-friendly solutions']
   },
   {
     id: '8',
@@ -183,7 +200,8 @@ export const agents: Agent[] = [
     phone: '+971 56 123 4567',
     company: 'Property Experts',
     license: 'BRN-89012',
-    specialization: ['Land', 'Development', 'Investment'],
+    specialization: 'Land',
+    specializations: ['Land', 'Development', 'Investment'],
     languages: ['English', 'French', 'Italian'],
     experience: 15,
     rating: 4.9,
@@ -196,7 +214,8 @@ export const agents: Agent[] = [
     verified: true,
     featured: false,
     location: 'Dubai',
-    areas: ['Dubai South', 'Dubai Land', 'Industrial Areas', 'Free Zones']
+    areas: ['Dubai South', 'Dubai Land', 'Industrial Areas', 'Free Zones'],
+    achievements: ['Land development expert', 'Large-scale projects', 'Investment advisor']
   }
 ];
 
@@ -213,7 +232,8 @@ export const getAgentsByLocation = (location: string) => {
 
 export const getAgentsBySpecialization = (specialization: string) => {
   return agents.filter(agent => 
-    agent.specialization.some(spec => spec.toLowerCase().includes(specialization.toLowerCase()))
+    agent.specialization.toLowerCase().includes(specialization.toLowerCase()) ||
+    (agent.specializations && agent.specializations.some((spec: string) => spec.toLowerCase().includes(specialization.toLowerCase())))
   );
 };
 
