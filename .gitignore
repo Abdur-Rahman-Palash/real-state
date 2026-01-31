@@ -1,14 +1,14 @@
 # Dependencies
-node_modules/
+node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # Production builds
-.next/
-out/
-build/
-dist/
+.next
+out
+build
+dist
 
 # Environment variables
 .env
@@ -17,20 +17,14 @@ dist/
 .env.test.local
 .env.production.local
 
-# IDE and editor files
-.vscode/
-.idea/
+# IDE files
+.vscode
+.idea
 *.swp
 *.swo
-*~
 
-# OS generated files
+# OS files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
 # Logs
@@ -43,13 +37,11 @@ pids
 *.pid.lock
 
 # Coverage directory used by tools like istanbul
-coverage/
+coverage
 
-# nyc test coverage
-.nyc_output
-
-# Dependency directories
-jspm_packages/
+# Temporary folders
+tmp
+temp
 
 # Optional npm cache directory
 .npm
@@ -76,23 +68,20 @@ jspm_packages/
 .cache
 .parcel-cache
 
-# Next.js build output
+# next.js build output
 .next
 
-# Nuxt.js build / generate output
+# nuxt.js build output
 .nuxt
 
-# Gatsby files
-.cache/
-public
+# vuepress build output
+.vuepress/dist
 
-# Storybook build outputs
-.out
-.storybook-out
+# Serverless directories
+.serverless
 
-# Temporary folders
-tmp/
-temp/
+# FuseBox cache
+.fusebox/
 
-# TypeScript cache
-*.tsbuildinfo
+# DynamoDB Local files
+.dynamodb/
