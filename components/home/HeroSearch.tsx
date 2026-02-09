@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { Search, MapPin, Home, DollarSign, ChevronDown, Filter } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
+import { fadeInUp, fadeInLeft, fadeInRight, scaleIn, buttonHover } from '@/lib/animations';
 
 const HeroSearch = () => {
   const router = useRouter();
@@ -87,21 +89,53 @@ const HeroSearch = () => {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+        <motion.div 
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          className="text-center mb-12"
+        >
+          <motion.h1 
+            variants={scaleIn}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.2 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+          >
             Find Your Dream Home in UAE
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.4 }}
+            className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto"
+          >
             Discover thousands of properties for sale and rent across Dubai, Abu Dhabi, and beyond
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Search Container */}
-        <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
+        <motion.div 
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.6 }}
+          className="bg-white rounded-2xl shadow-2xl p-6 md:p-8"
+        >
           {/* Buy/Rent Toggle */}
-          <div className="flex justify-center mb-8">
+          <motion.div 
+            variants={fadeInLeft}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.7 }}
+            className="flex justify-center mb-8"
+          >
             <div className="inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1">
-              <button
+              <motion.button
+                variants={buttonHover}
+                whileHover="hover"
+                whileTap="tap"
                 onClick={() => setSearchType('buy')}
                 className={`px-6 py-3 rounded-md font-medium transition-all duration-200 ${
                   searchType === 'buy'
@@ -110,8 +144,11 @@ const HeroSearch = () => {
                 }`}
               >
                 Buy
-              </button>
-              <button
+              </motion.button>
+              <motion.button
+                variants={buttonHover}
+                whileHover="hover"
+                whileTap="tap"
                 onClick={() => setSearchType('rent')}
                 className={`px-6 py-3 rounded-md font-medium transition-all duration-200 ${
                   searchType === 'rent'
@@ -120,12 +157,18 @@ const HeroSearch = () => {
                 }`}
               >
                 Rent
-              </button>
+              </motion.button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Search Form */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+          <motion.div 
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.8 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6"
+          >
             {/* Location Input */}
             <div className="lg:col-span-2">
               <div className="relative">
@@ -201,55 +244,67 @@ const HeroSearch = () => {
               </select>
               <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
             </div>
-          </div>
+          </motion.div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
+          <motion.div 
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 1.0 }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
+            <motion.button
+              variants={buttonHover}
+              whileHover="hover"
+              whileTap="tap"
               onClick={handleSearch}
               className="flex-1 bg-primary-600 text-white py-4 px-6 rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium flex items-center justify-center space-x-2"
             >
               <Search className="w-5 h-5" />
               <span>Search Properties</span>
-            </button>
+            </motion.button>
             
-            <button className="flex items-center justify-center space-x-2 px-6 py-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium">
+            <motion.button 
+              variants={buttonHover}
+              whileHover="hover"
+              whileTap="tap"
+              className="flex items-center justify-center space-x-2 px-6 py-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium"
+            >
               <Filter className="w-5 h-5" />
               <span>Advanced Filters</span>
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
           {/* Quick Links */}
-          <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm">
-            <button 
-              onClick={() => router.push('/search')}
-              className="text-primary-600 hover:text-primary-700 font-medium"
-            >
-              Map Search
-            </button>
-            <span className="text-gray-400">•</span>
-            <button 
-              onClick={() => router.push('/new-projects')}
-              className="text-primary-600 hover:text-primary-700 font-medium"
-            >
-              New Projects
-            </button>
-            <span className="text-gray-400">•</span>
-            <button 
-              onClick={() => router.push('/properties')}
-              className="text-primary-600 hover:text-primary-700 font-medium"
-            >
-              Off-Plan Properties
-            </button>
-            <span className="text-gray-400">•</span>
-            <button 
-              onClick={() => router.push('/#mortgage-calculator')}
-              className="text-primary-600 hover:text-primary-700 font-medium"
-            >
-              Mortgage Calculator
-            </button>
-          </div>
-        </div>
+          <motion.div 
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 1.2 }}
+            className="mt-6 flex flex-wrap justify-center gap-4 text-sm"
+          >
+            {['Map Search', 'New Projects', 'Off-Plan Properties', 'Mortgage Calculator'].map((link, index) => (
+              <React.Fragment key={link}>
+                <motion.button 
+                  variants={buttonHover}
+                  whileHover="hover"
+                  whileTap="tap"
+                  onClick={() => {
+                    if (link === 'Map Search') router.push('/search');
+                    else if (link === 'New Projects') router.push('/new-projects');
+                    else if (link === 'Off-Plan Properties') router.push('/properties');
+                    else if (link === 'Mortgage Calculator') router.push('/#mortgage-calculator');
+                  }}
+                  className="text-primary-600 hover:text-primary-700 font-medium"
+                >
+                  {link}
+                </motion.button>
+                {index < 3 && <span className="text-gray-400">•</span>}
+              </React.Fragment>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

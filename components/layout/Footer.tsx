@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeInUp, fadeInLeft, scaleIn } from '@/lib/animations';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -46,18 +48,32 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <motion.footer 
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInUp}
+      className="bg-gray-900 text-white"
+    >
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
+          <motion.div 
+            variants={fadeInLeft}
+            className="lg:col-span-2"
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center space-x-2 mb-4"
+            >
               <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">R</span>
               </div>
               <span className="text-xl font-bold">RealEstate</span>
-            </div>
+            </motion.div>
             
             <p className="text-gray-300 mb-6 max-w-md">
               Your trusted partner in finding the perfect property in UAE. Discover thousands of properties for sale and rent across Dubai, Abu Dhabi, and beyond.
@@ -80,84 +96,112 @@ const Footer = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
+            <motion.div 
+              variants={scaleIn}
+              className="flex space-x-4"
+            >
+              {socialLinks.map((social, index) => (
+                <motion.a
                   key={social.label}
                   href={social.href}
                   className="p-2 bg-gray-800 rounded-lg hover:bg-primary-600 transition-colors duration-200"
                   aria-label={social.label}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
                   <social.icon className="w-5 h-5" />
-                </a>
+                </motion.a>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div variants={fadeInLeft} transition={{ delay: 0.1 }}>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
+              {quickLinks.map((link, index) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + index * 0.05 }}
+                >
                   <a
                     href={link.href}
                     className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Company */}
-          <div>
+          <motion.div variants={fadeInLeft} transition={{ delay: 0.2 }}>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-3">
-              {companyLinks.map((link) => (
-                <li key={link.name}>
+              {companyLinks.map((link, index) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 + index * 0.05 }}
+                >
                   <a
                     href={link.href}
                     className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Tools & Legal */}
-          <div>
+          <motion.div variants={fadeInLeft} transition={{ delay: 0.3 }}>
             <h3 className="text-lg font-semibold mb-4">Tools & Resources</h3>
             <ul className="space-y-3 mb-6">
-              {toolsLinks.map((link) => (
-                <li key={link.name}>
+              {toolsLinks.map((link, index) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 + index * 0.05 }}
+                >
                   <a
                     href={link.href}
                     className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
 
             <h3 className="text-lg font-semibold mb-4">Legal</h3>
             <ul className="space-y-3">
-              {legalLinks.map((link) => (
-                <li key={link.name}>
+              {legalLinks.map((link, index) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 + index * 0.05 }}
+                >
                   <a
                     href={link.href}
                     className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
 
         {/* Newsletter Section */}
@@ -175,10 +219,14 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500"
               />
-              <button className="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium flex items-center justify-center gap-2">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium flex items-center justify-center gap-2"
+              >
                 <span>Subscribe</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
@@ -199,7 +247,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

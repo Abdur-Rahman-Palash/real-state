@@ -24,7 +24,7 @@ const AboutPage = () => {
     {
       name: 'Ahmed Al-Mansoori',
       position: 'CEO & Founder',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+      image: 'https://images.unsplash.com/photo-1560250097-0f9f28545761?w=400&h=400&fit=crop&crop=face',
       bio: 'Visionary leader with 15+ years of real estate expertise, committed to revolutionizing property search in UAE.'
     },
     {
@@ -237,7 +237,7 @@ const AboutPage = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Leadership Team</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Imam</h2>
             <p className="text-xl text-gray-600">The passionate people behind our success</p>
           </div>
           

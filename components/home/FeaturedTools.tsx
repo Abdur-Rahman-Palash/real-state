@@ -2,7 +2,9 @@
 
 import React from 'react';
 import { Bot, Calculator, TrendingUp, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { getFeaturedTools } from '@/data/tools';
+import { fadeInUp, fadeInLeft, cardHover, staggerContainer } from '@/lib/animations';
 
 const FeaturedTools = () => {
   const tools = getFeaturedTools();
@@ -21,23 +23,41 @@ const FeaturedTools = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-50">
+    <motion.section 
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInUp}
+      className="py-16 bg-gray-50"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <motion.div 
+          variants={fadeInUp}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Advanced Real Estate Tools
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Leverage cutting-edge technology and AI-powered tools to make smarter property decisions
           </p>
-        </div>
+        </motion.div>
 
         {/* Tools Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {tools.map((tool) => (
-            <div
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {tools.map((tool, index) => (
+            <motion.div
               key={tool.id}
+              variants={cardHover}
+              initial="rest"
+              whileHover="hover"
               className="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100"
             >
               <div className="p-8">
@@ -67,25 +87,34 @@ const FeaturedTools = () => {
 
               {/* Hover Effect Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 text-center">
+        <motion.div 
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-12 text-center"
+        >
           <p className="text-gray-600 mb-4">
             Discover all our powerful tools and features
           </p>
-          <a
+          <motion.a
             href="/tools"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="inline-flex items-center px-6 py-3 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium text-gray-700"
           >
             View All Tools
             <ArrowRight className="w-4 h-4 ml-2" />
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
