@@ -105,9 +105,9 @@ const LogoutPage = () => {
                     <User className="w-6 h-6 text-gray-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">John Doe</h3>
-                    <p className="text-sm text-gray-600">john.doe@example.com</p>
-                    <p className="text-xs text-gray-500">Member since June 2023</p>
+                    <h3 className="font-semibold text-gray-900">Alex Johnson</h3>
+                    <p className="text-sm text-gray-600">alex.johnson@example.com</p>
+                    <p className="text-xs text-gray-500">Member since January 2024</p>
                   </div>
                 </div>
               </div>

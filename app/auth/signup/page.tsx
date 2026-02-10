@@ -269,7 +269,7 @@ const SignupPage = () => {
                           className={`block w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent ${
                             errors.email ? 'border-red-300' : 'border-gray-300'
                           }`}
-                          placeholder="john.doe@example.com"
+                          placeholder="alex.johnson@example.com"
                         />
                       </div>
                       {errors.email && (

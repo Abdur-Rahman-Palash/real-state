@@ -30,10 +30,10 @@ const DashboardPage = () => {
 
   // Mock user data
   const user = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
+    name: 'Alex Johnson',
+    email: 'alex.johnson@example.com',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-    memberSince: '2023-06-15',
+    memberSince: '2024-01-01',
     accountType: 'buyer'
   };
 

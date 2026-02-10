@@ -58,7 +58,7 @@ const MessagesPage = () => {
       },
       thread: [
         {
-          sender: 'John Doe',
+          sender: 'Alex Johnson',
           message: 'Hi, I\'m interested in the 3BR apartment in Dubai Marina. Is it still available?',
           time: '3 hours ago',
           isMe: true

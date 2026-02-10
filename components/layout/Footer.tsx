@@ -70,28 +70,28 @@ const Footer = () => {
               className="flex items-center space-x-2 mb-4"
             >
               <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">R</span>
+                <span className="text-white font-bold text-lg">P</span>
               </div>
-              <span className="text-xl font-bold">RealEstate</span>
+              <span className="text-xl font-bold">PropertyHub</span>
             </motion.div>
             
             <p className="text-gray-300 mb-6 max-w-md">
-              Your trusted partner in finding the perfect property in UAE. Discover thousands of properties for sale and rent across Dubai, Abu Dhabi, and beyond.
+              Your premier destination for property discovery and real estate solutions. Explore extensive listings of residential and commercial properties across major cities.
             </p>
 
             {/* Contact Information */}
             <div className="space-y-3 mb-6">
               <div className="flex items-center text-gray-300">
                 <Phone className="w-5 h-5 mr-3 text-primary-400" />
-                <span>+971 4 123 4567</span>
+                <span>+1 555 123 4567</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <Mail className="w-5 h-5 mr-3 text-primary-400" />
-                <span>info@realestate.ae</span>
+                <span>contact@propertyhub.com</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <MapPin className="w-5 h-5 mr-3 text-primary-400" />
-                <span>Dubai, United Arab Emirates</span>
+                <span>New York, United States</span>
               </div>
             </div>
 
@@ -208,9 +208,9 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-xl font-semibold mb-2">Stay Updated</h3>
+              <h3 className="text-xl font-semibold mb-2">Get Property Updates</h3>
               <p className="text-gray-300">
-                Subscribe to our newsletter for the latest property listings and market insights.
+                Join our newsletter for exclusive property deals, market trends, and investment opportunities.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -237,12 +237,12 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {currentYear} RealEstate. All rights reserved.
+              © {currentYear} PropertyHub. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <span>UAE's Leading Real Estate Platform</span>
+              <span>America's Trusted Real Estate Platform</span>
               <span>•</span>
-              <span>Trusted by 25,000+ Customers</span>
+              <span>Serving 50,000+ Happy Clients</span>
             </div>
           </div>
         </div>

@@ -48,11 +48,11 @@ const SettingsPage = () => {
 
   const [formData, setFormData] = useState({
     // Profile Settings
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john.doe@example.com',
-    phone: '+971 50 123 4567',
-    location: 'Dubai, UAE',
+    firstName: 'Alex',
+    lastName: 'Johnson',
+    email: 'alex.johnson@example.com',
+    phone: '+971 50 987 6543',
+    location: 'United Arab Emirates',
     bio: 'Real estate enthusiast looking for investment opportunities in the UAE market.',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
     
