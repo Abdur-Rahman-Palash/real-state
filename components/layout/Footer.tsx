@@ -245,6 +245,16 @@ const Footer = () => {
               <span>Serving 50,000+ Happy Clients</span>
             </div>
           </div>
+          <div className="flex justify-center items-center mt-6 pt-6 border-t border-gray-800">
+            <a 
+              href="https://neubyte.tech" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-lg font-semibold text-gray-400 hover:text-primary-400 transition-colors duration-200"
+            >
+              Powered by neubyte.tech
+            </a>
+          </div>
         </div>
       </div>
     </motion.footer>
